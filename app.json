@@ -1,0 +1,7 @@
+{
+  "name": "Dr.Whatson in the house!",
+  "description": "a naive disease predicting chatbot we made for a course",
+  "repository": "https://github.com/aditya-c/Dr.Whatson",
+  // "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["nlp", "symptom-disease", "chatbot"]
+}
