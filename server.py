@@ -18,7 +18,7 @@ tell_results = ["I think you might have :", "You could be down with :", "You mig
 welcome_results = ["Hello. I'm Dr.Whatson! I am your virtual doctor for the day. How are your feeling today?", "Hi! I'm Dr.Whatson! Your friendly Virtual Assistant. How are you feeling today?", "Hi! I'm Dr.Whatson! Your friendly Virtual Assistant. How are you doing today?"]
 
 
-@app.route('/', methods=('POST', 'GET'))
+@app.route('/')
 def homepage():
     return app.send_static_file('index.html')
 
