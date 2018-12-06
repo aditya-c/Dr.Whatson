@@ -1,34 +1,12 @@
-# -*- coding:utf8 -*-
-# !/usr/bin/env python
-# Copyright 2017 Google Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# from urllib.parse import urlparse, urlencode
-# from urllib.request import urlopen, Request
-# from urllib.error import HTTPError
-
 import json
 import os
 import random
 
+from flask import Flask, request, make_response
+
 import primer
 
-from flask import Flask
-from flask import request
-from flask import make_response
-
-# Flask app should start in global layout
+# Flask app starts in a global layout
 app = Flask(__name__)
 
 symptoms_list = list()
@@ -38,6 +16,11 @@ ask_symptoms = ["Could you share another symptom?", "Do you observe any other sy
 tell_results = ["I think you might have :", "You could be down with :", "You might possibly be affected with :"]
 
 welcome_results = ["Hello. I'm Dr.Whatson! I am your virtual doctor for the day. How are your feeling today?", "Hi! I'm Dr.Whatson! Your friendly Virtual Assistant. How are you feeling today?", "Hi! I'm Dr.Whatson! Your friendly Virtual Assistant. How are you doing today?"]
+
+
+@app.route('/', methods=('POST', 'GET'))
+def homepage():
+    return app.send_static_file('index.html')
 
 
 @app.route('/webhook', methods=['POST'])
@@ -138,12 +121,6 @@ def makeWebhookResult(speech, suggestions):
     }
 
     result["data"]["google"]["richResponse"]["items"].append(res)
-
-    # result = {
-    #     "speech": speech,
-    #     "displayText": speech,
-    #     "source": "Dr.Whatson flask server response."
-    # }
 
     if suggestions:
 
