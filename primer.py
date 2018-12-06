@@ -1,13 +1,14 @@
 import warnings
 import RAKE
-from nltk.corpus import stopwords
-import sys
+import nltk
+# import sys
 import numpy as np
 import pandas as pd
 from scipy.cluster.vq import whiten
 from numpy.linalg import inv
 
 warnings.filterwarnings('ignore')
+nltk.download("stopwords")
 
 
 def query_symptoms(symptoms):
@@ -67,7 +68,7 @@ def parse(sentence):
           'toward', 'underneath', 'unlike', 'yet', 'under', 'unsigneded', 'coupled', 'also', 'seem']
 
     # English stopwords
-    sw += list(set(stopwords.words('English')))
+    sw += nltk.corpus.stopwords.words.words('English')
 
     r = RAKE.Rake(sw)
     keywords = r.run(sentence)
