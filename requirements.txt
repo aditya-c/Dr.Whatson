@@ -1,0 +1,6 @@
+Flask==0.12.2
+nltk==3.2.4
+numpy==1.14.3
+pandas==0.22.0
+python-rake==1.4.5
+scipy==1.1.0
