@@ -4,7 +4,7 @@ import random
 
 from flask import Flask, request, make_response
 
-import primer
+import whatsons_noggin
 
 # Flask app starts in a global layout
 app = Flask(__name__)
@@ -94,11 +94,11 @@ def process_intent(intent, entity_dic, query):
 
 
 def krishna_parse(symptom):
-    return primer.parse(symptom)
+    return whatsons_noggin.parse(symptom)
 
 
 def krishna_predict(symptoms_list):
-    return primer.predict(symptoms_list)
+    return whatsons_noggin.predict(symptoms_list)
 
 
 def makeWebhookResult(speech, suggestions):

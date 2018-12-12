@@ -14,7 +14,7 @@ nltk.download("stopwords")
 def query_symptoms(symptoms):
 
     Qsym = pd.DataFrame()
-    sym = pd.read_csv('sym_3.csv')
+    sym = pd.read_csv('./data/sym_3.csv')
     for s in symptoms:
         Qsym = Qsym.append(sym[sym['symptom'] == s])
     return Qsym
@@ -68,7 +68,7 @@ def parse(sentence):
           'toward', 'underneath', 'unlike', 'yet', 'under', 'unsigneded', 'coupled', 'also', 'seem']
 
     # English stopwords
-    sw += nltk.corpus.stopwords.words.words('English')
+    sw += nltk.corpus.stopwords.words('English')
 
     r = RAKE.Rake(sw)
     keywords = r.run(sentence)
@@ -76,7 +76,7 @@ def parse(sentence):
     symptoms = []
     for i in range(len(keywords)):
         keywords[i] = keywords[i][0].upper() + keywords[i][1:]
-    sym = pd.read_csv('sym_3.csv')
+    sym = pd.read_csv('./data/sym_3.csv')
     for k in keywords:
         if k in sym['symptom'].tolist():
             symptoms.append(k)
@@ -89,9 +89,9 @@ def predict(symptoms):
 
     Qsym = query_symptoms(symptoms)
 
-    syd = pd.read_csv('sym_dis_matrix.csv')
-    dia = pd.read_csv('dia_3.csv')
-    sym = pd.read_csv('sym_3.csv')
+    syd = pd.read_csv('./data/sym_dis_matrix.csv')
+    dia = pd.read_csv('./data/dia_3.csv')
+    sym = pd.read_csv('./data/sym_3.csv')
 
     A = syd
     A = A.append(A)
