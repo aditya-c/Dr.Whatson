@@ -67,7 +67,7 @@ def parse(sentence):
           'toward', 'underneath', 'unlike', 'yet', 'under', 'unsigneded', 'coupled', 'also', 'seem']
 
     # English stopwords
-    sw += nltk.corpus.stopwords.words('English')
+    sw += nltk.corpus.stopwords.words('english')
 
     r = RAKE.Rake(sw)
     keywords = r.run(sentence)
