@@ -9,7 +9,7 @@ from numpy.linalg import inv
 import os
 
 warnings.filterwarnings('ignore')
-os.makedir("nltk_data")
+os.mkdir("nltk_data")
 nltk.download("stopwords", "./nltk_data")
 nltk.data.path.append('./nltk_data')
 
