@@ -9,8 +9,7 @@ from numpy.linalg import inv
 import os
 
 warnings.filterwarnings('ignore')
-nltk.download("stopwords", ".")
-nltk.data.path.append('.')
+nltk.download("stopwords")
 
 
 def query_symptoms(symptoms):
