@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 symptoms_list = list()
 
-ask_symptoms = ["Could you share another symptom?", "Do you observe any other symptoms?", "Could you let me know of any other symptom you are experiencing?", "Do you want to share another symptom?", "Do you notice any other symptoms?", "DO you wish to share any other symptoms?", "Are you experiencing any other symptoms?"]
+ask_symptoms = ["Could you share another symptom?", "Do you observe any other symptoms?", "Could you let me know of any other symptom you are experiencing?", "Do you want to share another symptom?", "Do you notice any other symptoms?", "Do you wish to share any other symptoms?", "Are you experiencing any other symptoms?"]
 
 tell_results = ["I think you might have :", "You could be down with :", "You might possibly be affected with :"]
 

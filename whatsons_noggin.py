@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 def query_symptoms(symptoms):
 
     Qsym = pd.DataFrame()
-    sym = pd.read_csv('./data/sym_3.csv')
+    sym = pd.read_csv('./dr.whatson_data/data/sym_3.csv')
     for s in symptoms:
         Qsym = Qsym.append(sym[sym['symptom'] == s])
     return Qsym
@@ -75,7 +75,7 @@ def parse(sentence):
     symptoms = []
     for i in range(len(keywords)):
         keywords[i] = keywords[i][0].upper() + keywords[i][1:]
-    sym = pd.read_csv('./data/sym_3.csv')
+    sym = pd.read_csv('./dr.whatson_data/data/sym_3.csv')
     for k in keywords:
         if k in sym['symptom'].tolist():
             symptoms.append(k)
@@ -88,9 +88,9 @@ def predict(symptoms):
 
     Qsym = query_symptoms(symptoms)
 
-    syd = pd.read_csv('./data/sym_dis_matrix.csv')
-    dia = pd.read_csv('./data/dia_3.csv')
-    sym = pd.read_csv('./data/sym_3.csv')
+    syd = pd.read_csv('./dr.whatson_data/data/sym_dis_matrix.csv')
+    dia = pd.read_csv('./dr.whatson_data/data/dia_3.csv')
+    sym = pd.read_csv('./dr.whatson_data/data/sym_3.csv')
 
     A = syd
     A = A.append(A)
