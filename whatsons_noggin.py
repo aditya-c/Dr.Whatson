@@ -6,9 +6,12 @@ import numpy as np
 import pandas as pd
 from scipy.cluster.vq import whiten
 from numpy.linalg import inv
+import os
 
 warnings.filterwarnings('ignore')
-nltk.download("stopwords")
+os.makedir("nltk_data")
+nltk.download("stopwords", "./nltk_data")
+nltk.data.path.append('./nltk_data')
 
 
 def query_symptoms(symptoms):
